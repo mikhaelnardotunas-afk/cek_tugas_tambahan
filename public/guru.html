@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel Guru — Ujian Praktik Matematika V3</title>
+<link rel="stylesheet" href="/css/guru.css">
+</head>
+<body>
+<div id="login" class="login hidden">
+  <form class="login-card" id="loginForm">
+    <div class="login-logo">∑</div>
+    <h1>Panel Guru</h1>
+    <p>Ujian Praktikum Matematika</p>
+    <label>PIN Guru</label>
+    <input type="password" id="pin" inputmode="numeric" autocomplete="current-password" placeholder="Masukkan PIN" autofocus>
+    <button class="b primary block" type="submit">Masuk</button>
+    <small>PIN awal: <b>1234</b> — segera ganti di menu Pengaturan.</small>
+    <div class="err" id="loginErr"></div>
+  </form>
+</div>
+
+<div id="shell" class="shell hidden">
+  <aside class="side">
+    <div class="side-brand"><div class="mark">∑</div><div><b>Ujian Praktikum</b><small id="sbSekolah">Matematika</small></div></div>
+    <nav id="nav">
+      <a data-p="kendali"><span>▶</span>Kendali Ujian</a>
+      <a data-p="aktivitas"><span>👁</span>Aktivitas Siswa</a>
+      <a data-p="siswa"><span>👥</span>Data Siswa</a>
+      <a data-p="bank"><span>📚</span>Bank Soal</a>
+      <a data-p="ujian"><span>⚙</span>Pengaturan Ujian</a>
+      <a data-p="laporan"><span>📊</span>Laporan &amp; Nilai</a>
+      <a data-p="tugas"><span>📝</span>Tugas Tambahan</a>
+      <a data-p="pengaturan"><span>🛠</span>Pengaturan</a>
+      <a data-p="panduan"><span>❓</span>Panduan</a>
+    </nav>
+    <div class="side-foot">
+      <div class="conn" id="conn"><i></i> Terhubung</div>
+      <button class="b ghost sm" id="logout">Keluar</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="top">
+      <h2 id="pageTitle">Kendali Ujian</h2>
+      <div class="top-r">
+        <span class="ifpurl" id="ifpUrl" title="Buka alamat ini di browser IFP"></span>
+        <a class="b ghost sm" href="/" target="_blank">Pratinjau Layar Siswa ↗</a>
+      </div>
+    </header>
+    <section id="content" class="content"></section>
+  </main>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toasts"></div>
+<div id="print"></div>
+<input type="file" id="filePick" class="hidden">
+
+<script src="/lib/xlsx.full.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/guru.js"></script>
+<script src="/js/aktivitas.js"></script>
+<script src="/js/tugasguru.js"></script>
+</body>
+</html>

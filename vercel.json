@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index?__r=/api/:path*" },
+    { "source": "/img/:name", "destination": "/api/index?__r=/img/:name" },
+    { "source": "/guru", "destination": "/guru.html" },
+    { "source": "/tugas", "destination": "/tugas.html" },
+    { "source": "/ifp", "destination": "/index.html" },
+    { "source": "/siswa", "destination": "/index.html" }
+  ],
+  "functions": {
+    "api/index.py": { "maxDuration": 30, "excludeFiles": "{public/**,*.xlsx,*.md}" }
+  }
+}

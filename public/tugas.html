@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tugas Tambahan</title>
+<style>
+@font-face { font-family: 'Fredoka'; src: url('/fonts/fredoka-latin-500-normal.woff2') format('woff2'); font-weight: 500; }
+@font-face { font-family: 'Fredoka'; src: url('/fonts/fredoka-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
+@font-face { font-family: 'Fredoka'; src: url('/fonts/fredoka-latin-700-normal.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; font-family: 'Inter', 'Segoe UI', sans-serif; color: #2b2d42; background: linear-gradient(160deg, #7ad3ff 0%, #a8e6cf 55%, #fff3b0 100%); }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 20px 16px 60px; }
+header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+header img { width: 56px; height: 56px; object-fit: contain; background: #fff; border-radius: 14px; padding: 4px; }
+header .logo { width: 56px; height: 56px; border-radius: 14px; background: #ff8c42; color: #fff; display: grid; place-items: center; font: 700 30px Fredoka; }
+h1 { font: 700 30px Fredoka, sans-serif; margin: 0; color: #1d3557; }
+header small { display: block; color: #1d3557; opacity: .8; font-weight: 600; }
+.card { background: #fff; border-radius: 22px; padding: 22px; box-shadow: 0 8px 0 rgba(29, 53, 87, .12), 0 12px 30px rgba(0, 0, 0, .08); margin-bottom: 18px; }
+h2 { font: 700 22px Fredoka, sans-serif; margin: 0 0 14px; color: #1d3557; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.grid.names { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.pill { border: 0; border-radius: 16px; padding: 16px 14px; font: 600 18px Fredoka, sans-serif; cursor: pointer; background: #e9f5ff; color: #1d3557; box-shadow: 0 4px 0 #b9dcf5; text-align: left; }
+.pill:active { transform: translateY(3px); box-shadow: 0 1px 0 #b9dcf5; }
+.pill.k { text-align: center; background: #fff1d6; box-shadow: 0 4px 0 #f2cf8a; font-size: 22px; }
+.pill small { display: block; font: 600 13px Inter; opacity: .7; margin-top: 2px; }
+.back { border: 0; background: #1d3557; color: #fff; border-radius: 12px; padding: 10px 16px; font: 600 16px Fredoka; cursor: pointer; margin-bottom: 14px; }
+.task { display: flex; gap: 14px; padding: 16px; border-radius: 18px; background: #f6fbff; border: 2px solid #d6ecfb; margin-bottom: 12px; }
+.task.done { background: #eefaf1; border-color: #a9e2bb; }
+.task .no { flex: none; width: 46px; height: 46px; border-radius: 50%; background: #ff8c42; color: #fff; display: grid; place-items: center; font: 700 22px Fredoka; }
+.task.done .no { background: #2ec27e; }
+.task b { font: 600 19px Fredoka; color: #1d3557; }
+.task .isi { font-size: 17px; line-height: 1.6; margin-top: 4px; }
+.task img { max-width: 100%; max-height: 300px; border-radius: 10px; margin-top: 8px; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 99px; font: 600 13px Inter; background: #2ec27e; color: #fff; margin-left: 6px; vertical-align: middle; }
+.info { background: #fff8e1; border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; font-size: 16px; }
+.muted { color: #6b7280; }
+.empty { text-align: center; padding: 30px 10px; font: 600 20px Fredoka; color: #1d3557; }
+.search { width: 100%; border: 2px solid #d6ecfb; border-radius: 14px; padding: 12px 14px; font: 500 17px Inter; margin-bottom: 14px; }
+.sel { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.sel button { border: 0; border-radius: 99px; padding: 8px 14px; font: 600 14px Inter; background: #e9f5ff; cursor: pointer; }
+.sel button.on { background: #1d3557; color: #fff; }
+sup, sub { line-height: 0; }
+.big { width: 100%; border: 3px solid #ff8c42; border-radius: 18px; padding: 16px 18px; font: 600 22px Fredoka, sans-serif; color: #1d3557; outline: none; }
+.big:focus { box-shadow: 0 0 0 5px rgba(255, 140, 66, .25); }
+.res { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.res .pill { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.res .pill span { font: 600 14px Inter; background: #fff; border-radius: 99px; padding: 4px 10px; white-space: nowrap; }
+.hint { color: #1d3557; opacity: .75; font-size: 15px; margin: 10px 2px 0; }
+.acts { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.btn { border: 0; border-radius: 14px; padding: 12px 18px; font: 600 17px Fredoka, sans-serif; cursor: pointer; color: #fff; background: #1d3557; box-shadow: 0 4px 0 rgba(0,0,0,.18); }
+.btn.pdf { background: #e63946; }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,.18); }
+.btn:disabled { opacity: .6; }
+details { margin-top: 4px; }
+summary { cursor: pointer; font: 600 16px Fredoka; color: #1d3557; padding: 6px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="hd"><div class="logo">✎</div><div><h1>Tugas Tambahan</h1><small id="sk">Memuat…</small></div></header>
+  <div id="app"><div class="card empty">Memuat daftar tugas…</div></div>
+</div>
+<script src="/lib/jspdf.umd.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/tugas.js"></script>
+</body>
+</html>
